@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Pius!</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: black;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #message {
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      text-align: center;
+      font-size: 28px;
+      color: #ff4d4d;
+      text-shadow: 0 0 10px red, 0 0 20px red;
+      animation: glow 2s ease-in-out infinite alternate;
+      z-index: 10;
+    }
+
+    @keyframes glow {
+      0% { opacity: 1; }
+      100% { opacity: 0.7; }
+    }
+
+    .balloon {
+      position: absolute;
+      width: 30px;
+      height: 40px;
+      border-radius: 50%;
+      background: hsl(360, 100%, 50%);
+      animation: floatUp 10s linear infinite;
+      z-index: 5;
+    }
+
+    @keyframes floatUp {
+      0% { bottom: -50px; }
+      100% { bottom: 110%; }
+    }
+
+    #cake {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 60px;
+      transform: translate(-50%, -50%);
+      animation: bounce 1s infinite ease-in-out;
+      z-index: 10;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -55%) scale(1.2); }
+    }
+
+    #floatingMsg {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 22px;
+      color: white;
+      text-align: center;
+      z-index: 20;
+      text-shadow: 0 0 10px #ff4d4d, 0 0 20px red;
+      animation: fadeCard 5s ease-in-out forwards;
+    }
+
+    @keyframes fadeCard {
+      0% { opacity: 0; transform: translate(-50%, -60%) scale(0.5); }
+      100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="heartCanvas" width="600" height="600"></canvas>
+  <canvas id="fireworksCanvas"></canvas>
+
+  <div id="message">🎉 Happy Birthday Pius! 🎂</div>
+  <div id="cake">🧁</div>
+
+  <div id="floatingMsg">
+    Happy Birthday to me! 🎉<br>
+    I’m grateful for life, growth, and how far I’ve come. 💪🏽<br>
+    More wins ahead. Happy Birthday, Pius! 🥳👑
+  </div>
+
+  <audio autoplay loop>
+    <source src="Birthday.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Glowing Heart
+    const heartCanvas = document.getElementById("heartCanvas");
+    const heartCtx = heartCanvas.getContext("2d");
+    heartCanvas.style.zIndex = 3;
+
+    let size = 10, maxSize = 100, growing = true;
+
+    function drawHeart(x, y, size) {
+      heartCtx.beginPath();
+      heartCtx.moveTo(x, y);
+      heartCtx.bezierCurveTo(x, y - size / 2, x - size, y - size / 2, x - size, y);
+      heartCtx.bezierCurveTo(x - size, y + size, x, y + size * 1.5, x, y + size * 2);
+      heartCtx.bezierCurveTo(x, y + size * 1.5, x + size, y + size, x + size, y);
+      heartCtx.bezierCurveTo(x + size, y - size / 2, x, y - size / 2, x, y);
+      heartCtx.fillStyle = "red";
+      heartCtx.shadowColor = "red";
+      heartCtx.shadowBlur = 25;
+      heartCtx.fill();
+      heartCtx.shadowBlur = 0;
+    }
+
+    function animateHeart() {
+      heartCtx.clearRect(0, 0, heartCanvas.width, heartCanvas.height);
+      drawHeart(heartCanvas.width / 2, heartCanvas.height / 4, size);
+      size = growing ? size + 1 : size - 1;
+      if (size >= maxSize || size <= 10) growing = !growing;
+      requestAnimationFrame(animateHeart);
+    }
+
+    animateHeart();
+  </script>
+
+  <script>
+    // Fireworks
+    const fireworksCanvas = document.getElementById("fireworksCanvas");
+    fireworksCanvas.width = window.innerWidth;
+    fireworksCanvas.height = window.innerHeight;
+    const ctx = fireworksCanvas.getContext("2d");
+
+    let particles = [];
+
+    function createFirework() {
+      const x = Math.random() * fireworksCanvas.width;
+      const y = Math.random() * fireworksCanvas.height / 2;
+      for (let i = 0; i < 80; i++) {
+        particles.push({
+          x, y,
+          angle: Math.random() * 2 * Math.PI,
+          speed: Math.random() * 3 + 2,
+          radius: 2 + Math.random() * 2,
+          color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+          life: 100
+        });
+      }
+    }
+
+    function animateFireworks() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+      ctx.fillRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        let p = particles[i];
+        p.x += Math.cos(p.angle) * p.speed;
+        p.y += Math.sin(p.angle) * p.speed;
+        p.life -= 1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+
+        if (p.life <= 0) particles.splice(i, 1);
+      }
+
+      requestAnimationFrame(animateFireworks);
+    }
+
+    setInterval(createFirework, 700);
+    animateFireworks();
+  </script>
+
+  <script>
+    // Balloons
+    function createBalloon() {
+      const balloon = document.createElement("div");
+      balloon.classList.add("balloon");
+      balloon.style.left = Math.random() * window.innerWidth + "px";
+      balloon.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      balloon.style.animationDuration = (6 + Math.random() * 5) + "s";
+      document.body.appendChild(balloon);
+
+      setTimeout(() => balloon.remove(), 12000);
+    }
+
+    setInterval(createBalloon, 500);
+  </script>
+</body>
+</html>
