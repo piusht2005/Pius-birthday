@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXAM ZONE - Your Gateway to Academic Excellence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        <img src="David html.png" alt="Exam Zone Logo" width="150">
+        }
+
+        .logo h1 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            padding: 2rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        /* Exam Sections */
+        .exam-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .exam-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .exam-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .exam-features {
+            margin: 1rem 0;
+        }
+
+        .exam-features li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .exam-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* WhatsApp Animation */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100vh;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            }
+        }
+
+        .whatsapp-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(44, 62, 80, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 765px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .whatsapp-btn {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Interactive Elements */
+        .interactive-demo {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .quiz-demo {
+            text-align: center;
+        }
+
+        .quiz-question {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .quiz-option {
+            background: #e9ecef;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .quiz-option.selected {
+            background: #27ae60;
+            color: white;
+            border-color: #2ecc71;
+        }
+
+        .score-display {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-placeholder">EZ</div>
+                    <h1>EXAM ZONE</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#jamb">JAMB</a></li>
+                        <li><a href="#waec">WAEC</a></li>
+                        <li><a href="#neco">NECO</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="home" class="hero">
+                <h2>Welcome to EXAM ZONE</h2>
+                <p>Your comprehensive platform for JAMB, WAEC, and NECO exam preparation</p>
+                <a href="#features" class="cta-button">Start Learning Today</a>
+            </section>
+
+            <section id="features" class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Comprehensive Syllabi</h3>
+                    <p>Complete syllabus coverage for JAMB (UTME), WAEC (WASSCE), and NECO (SSCE) across all subjects</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Past Questions Database</h3>
+                    <p>Extensive collection of past exam questions from 1990-2024 with detailed solutions and explanations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Mock Tests & Practice</h3>
+                    <p>Interactive, timed mock exams that simulate real JAMB CBT, WAEC, and NECO formats</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Topic Analysis Tools</h3>
+                    <p>Identify frequently tested topics and prioritize your study focus based on exam patterns</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Gamified Learning</h3>
+                    <p>Engaging quizzes, leaderboards, and achievement badges to motivate consistent practice</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Platform</h3>
+                    <p>SSL encryption and advanced security measures to protect your data and learning progress</p>
+                </div>
+            </section>
+
+            <section class="exam-sections">
+                <div id="jamb" class="exam-card">
+                    <h3>🎯 JAMB (UTME) Preparation</h3>
+                    <ul class="exam-features">
+                        <li><a href="jamb1.html"  >Subject combination guide based on desired courses</a></li>
+                        <li><a href="jamb2.html">JAMB score calculator and performance estimation</a></li>
+                        <li><a href="jamb3.html">CBT format mastery tips and techniques</a></li>
+                        <li><a href="jamb4.html">180 questions in 2 hours simulation practice</a></li>
+                        <li><a href="jamb5.html">Registration guides and deadline updates</a></li>
+                    </ul>
+                </div>
+                <div id="waec" class="exam-card">
+                    <h3>🏆 WAEC (WASSCE) Resources</h3>
+                    <ul class="exam-features">
+                        <li><a href="weac1.html">8-9 subject selection guidance</a></li>
+                        <li><a href="weac2.html">Core subjects emphasis (English, Mathematics)</a></li>
+                        <li><a href="weac3.html">Practical exam resources and virtual lab simulations</a></li>
+                        <li><a href="weac4.html">Result verification tools with scratch cards</a></li>
+                        <li><a href="weac5.html">2026 CBT transition preparation</a></li>
+                    </ul>
+                </div>
+                <div id="neco" class="exam-card">
+                    <h3>📋 NECO (SSCE) Support</h3>
+                    <ul class="exam-features">
+                        <li><a href="neco1.html">Comprehensive subject coverage</a></li>
+                        <li><a href="neco2.html">Registration deadlines and updates</a></li>
+                        <li><a href="neco3.html">Practical examination preparation</a></li>
+                        <li><a href="neco4.html">Result checking and verification</a></li>
+                        <li><a href="neco5.html">Malpractice prevention guidelines</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="interactive-demo">
+                <div class="quiz-demo">
+                    <h3>📱 Interactive Quiz Demo</h3>
+                    <div class="quiz-question">
+                        <h4>Sample JAMB Mathematics Question:</h4>
+                        <p>If log₂(x) = 3, find the value of x.</p>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectOption(this, false)">A) 6</div>
+                        <div class="quiz-option" onclick="selectOption(this, true)">B) 8</div>
+                        <div class="quiz-option" onclick="selectOption(this, false)">C) 9</div>
+                        <div class="quiz-option" onclick="selectOption(this, false)">D) 12</div>
+                    </div>
+                    <div class="score-display" id="scoreDisplay">Select an answer to see your result!</div>
+                </div>
+            </section>
+
+            <section id="resources" class="contact-section">
+                <h3>🎓 Additional Resources</h3>
+                <p>Access comprehensive study materials, career guidance, and exam strategies</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px;">
+                        <h4>📅 Study Timetables</h4>
+                        <p>Customizable study plans for effective time management</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px;">
+                        <h4>🎯 Career Guidance</h4>
+                        <p>Course selection and university admission requirements</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px;">
+                        <h4>💡 Exam Strategies</h4>
+                        <p>Expert tips for time management and stress handling</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="contact-section">
+                <h3>📞 Connect With Us</h3>
+                <p>Join our community and get instant support for your exam preparation journey</p>
+                <div class="contact-links">
+                    <a href="https://wa.me/qr/GNI5XDSAZNUBE1" class="contact-link">
+                        <span>💬</span> WhatsApp Direct
+                    </a>
+                    <a href="https://whatsapp.com/channel/0029VafS6RQLI8YScRl8283U" class="contact-link">
+                        <span>📢</span> WhatsApp Channel
+                    </a>
+                    <a href="https://facebook.com/groups/526818599795384/" class="contact-link">
+                        <span>👥</span> Facebook Group
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 EXAM ZONE. All rights reserved. | Secure • Reliable • Comprehensive</p>
+            <p>Protected by SSL encryption and advanced security measures</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float">
+        <a href="https://whatsapp.com/channel/0029VafS6RQLI8YScRl8283U" class="whatsapp-btn">
+            <span class="whatsapp-icon">📱</span>
+            <span>Join Our Channel</span>
+        </a>
+    </div>
+
+    <script>
+        // Interactive Quiz Functionality
+        let selectedAnswer = null;
+        let hasAnswered = false;
+
+        function selectOption(element, isCorrect) {
+            if (hasAnswered) return;
+            
+            // Remove previous selections
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selection to clicked option
+            element.classList.add('selected');
+            selectedAnswer = isCorrect;
+            hasAnswered = true;
+            
+            // Show result
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            if (isCorrect) {
+                scoreDisplay.textContent = '🎉 Correct! x = 2³ = 8';
+                scoreDisplay.style.color = '#27ae60';
+            } else {
+                scoreDisplay.textContent = '❌ Incorrect. The correct answer is B) 8';
+                scoreDisplay.style.color = '#e74c3c';
+            }
+            
+            // Reset after 3 seconds
+            setTimeout(() => {
+                document.querySelectorAll('.quiz-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                scoreDisplay.textContent = 'Select an answer to see your result!';
+                scoreDisplay.style.color = '#2c3e50';
+                hasAnswered = false;
+            }, 3000);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // WhatsApp button animation enhancement
+        const whatsappBtn = document.querySelector('.whatsapp-btn');
+        whatsappBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1)';
+        });
+        whatsappBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+
+        // Dynamic content loading simulation
+        function loadExamContent(examType) {
+            const content = {
+                jamb: {
+                    title: 'JAMB (UTME) - Unified Tertiary Matriculation Examination',
+                    description: 'Computer-based test with 180 questions in 2 hours',
+                    subjects: ['English Language', 'Mathematics', 'Physics', 'Chemistry', 'Biology', 'Literature', 'Government', 'Economics']
+                },
+                waec: {
+                    title: 'WAEC (WASSCE) - West African Senior School Certificate Examination',
+                    description: 'Traditional paper-based exam transitioning to CBT by 2026',
+                    subjects: ['English Language', 'Mathematics', 'Biology', 'Physics', 'Chemistry', 'Geography', 'Economics', 'Literature']
+                },
+                neco: {
+                    title: 'NECO (SSCE) - National Examinations Council',
+                    description: 'Senior School Certificate Examination',
+                    subjects: ['English Language', 'Mathematics', 'Biology', 'Physics', 'Chemistry', 'Geography', 'Economics', 'Literature']
+                }
+            };
+            
+            return content[examType];
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('EXAM ZONE website loaded successfully!');
+            
+            // Add entrance animation
+            const hero = document.querySelector('.hero');
+            hero.style.opacity = '0';
+            hero.style.transform = 'translateY(50px)';
+            
+            setTimeout(() => {
+                hero.style.transition = 'all 1s ease-out';
+                hero.style.opacity = '1';
+                hero.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html># Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
